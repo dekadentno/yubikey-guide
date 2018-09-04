@@ -58,6 +58,8 @@ toggle
 
 keytocard
 
+choose 1 for signature key and replace the existing key
+
 key 1
 
 keytocard
@@ -68,15 +70,7 @@ After last command, select (1) Signature key and add passphrase.
 ```bash
 key 1
 
-key 2
 ```
 
-After this, choose (2) Encryption key
-
-```bash
-keytocard
-
-save
-``
 
 If you mess something up on your YubiKey 4, you can do a factory reset with [this](https://gist.github.com/pkirkovsky/c3d703633effbdfcb48c) script.
