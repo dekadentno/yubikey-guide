@@ -26,6 +26,13 @@ uid                          User Name <user.name@email.com>
 ssb   4096R/62E5B29EEA7145E 2016-08-11
 
 ```
+List SHORT public keys
+```bash
+pub   rsa2048/66A72312 2018-09-04 [SC] [expires: 2020-09-03]
+      E0B7C039870AEB65EB4CD59F5CFD524D66A72312
+uid         [ultimate] Matej Lazarevic <matej.lazarevic@33barrage.com>
+sub   rsa2048/<COPY_SHORT_KEY> 2018-09-04 [E] [expires: 2020-09-03]
+```
 
 Export public key: 
 ```bash
