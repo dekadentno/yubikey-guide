@@ -74,3 +74,6 @@ key 1
 
 
 If you mess something up on your YubiKey 4, you can do a factory reset with [this](https://gist.github.com/pkirkovsky/c3d703633effbdfcb48c) script.
+
+## Avoid entering password on every pull and push:
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
