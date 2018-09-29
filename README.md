@@ -5,7 +5,7 @@ Simple steps on how to configure Yubico YubiKey 4 on Linux for signed git commit
 __Important:__ Do not use gpg because YubiKey 4 works only with gpg2 !
 
 ## Generate and export new gpg2 key
-__Important:__ use RSA2048, not RSA4086!
+__Important:__ use RSA2048, not RSA4096!
 
 Generate new key and answer all questions:
 ```bash
