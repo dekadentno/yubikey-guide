@@ -84,3 +84,20 @@ If you mess something up on your YubiKey 4, you can do a factory reset with [thi
 
 ## Avoid entering password on every pull and push:
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+## Import key to another computer - thanks iklajo
+
+https://forum.yubico.com/viewtopic.php?f=35&t=2446
+
+No, you simply import the public key (or use fetch if you have configured the URL on YubiKey):
+gpg --import < pubkey.txt (or whatever filename you used for the public key)
+
+Then insert the card and verify it by:
+gpg --card-status
+
+Finally trust the public key:
+gpg --edit-key YOUR KEY ID
+trust
+choose 5 = I trust ultimately
+confirm with Y
+then quit
