@@ -101,3 +101,44 @@ trust
 choose 5 = I trust ultimately
 confirm with Y
 then quit
+
+# Generate new key directly on yubikey
+```bash
+gpg --card-edit
+admin
+gpg/card> generate
+Make off-card backup of encryption key? (Y/n) n
+
+gpg: Note: keys are already stored on the card!
+
+Replace existing keys? (y/N) yes
+
+Please note that the factory settings of the PINs are
+   PIN = '123456'     Admin PIN = '12345678'
+You should change them using the command --change-pin
+
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) 3m
+Key expires at Thu Jan 31 10:46:36 2019 CET
+Is this correct? (y/N) y
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Matej Lazarevic
+Email address: matej.lazarevic@33barrage.com
+Comment: nov
+You selected this USER-ID:
+    "Matej Lazarevic (nov) <matej.lazarevic@33barrage.com>"
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+
+quit
+
+gpg2 --armor --export KEY_ID
+
+```
