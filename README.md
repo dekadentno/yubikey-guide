@@ -142,3 +142,17 @@ quit
 gpg2 --armor --export KEY_ID
 
 ```
+
+# Import public key to another computer 
+
+gpg --import < pubkey.txt (or whatever filename you used for the public key)
+
+Then insert the card and verify it by:
+gpg --card-status
+
+Finally trust the public key:
+--edit-key YOUR KEY ID
+trust
+choose 5 = I trust ultimately
+confirm with Y
+then quit
