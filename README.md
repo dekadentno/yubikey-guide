@@ -156,3 +156,41 @@ trust
 choose 5 = I trust ultimately
 confirm with Y
 then quit
+
+# Yubikey Support from Git Bash [(source)](https://gist.github.com/wsargent/072319c2100ac0aea4305d6f6eeacc08)
+
+Git Bash's gpg doesn't like GPG4Win.  If you try running GPG from inside a Git Bash shell, you get:
+
+```
+$ gpg --card-status
+gpg: detected reader `Yubico Yubikey 4 OTP+CCID 0'
+gpg: pcsc_transmit failed: invalid parameter (0x80100004)
+gpg: apdu_send_simple(0) failed: invalid value
+Please insert the card and hit return or enter 'c' to cancel: c
+gpg: selecting openpgp failed: invalid argument
+gpg: OpenPGP card not available: general error
+```
+
+If you use "gpg" from your window command prompt, then `gpg --card-status` will work fine, because it's coming from `C:\Program Files (x86)\GNU\GnuPG\pub`.  So you can do this from Git Bash:
+
+```
+cd "/c/Program Files (x86)/GNU/GnuPG/pub"
+./gpg.exe --card-status
+```
+
+The easiest thing to do is to ensure that "/c/Program Files (x86)/GNU/GnuPG/pub" on the PATH (which it is already), and delete the "Git Bash" version.
+
+Check from the Git Bash shell that "GnuPG" is on there:
+
+```
+echo $PATH | grep GnuPG
+```
+
+From the Administrator Command prompt, delete GPG:
+
+```
+cd "C:\Program Files\Git\usr\bin"
+rm gpg.exe
+```
+
+Then close the Git Bash shell to try again.
