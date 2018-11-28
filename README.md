@@ -194,3 +194,6 @@ rm gpg.exe
 ```
 
 Then close the Git Bash shell to try again.
+
+# Debian distros issue: --card-status not working
+Follow these steps: https://blog.josefsson.org/tag/scdaemon/
