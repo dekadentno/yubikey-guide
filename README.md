@@ -34,7 +34,7 @@ gpg2 --armor --export PASTE_LONG_KEY_HERE > public-key.txt
 gpg2 --armor --export PASTE_LONG_KEY_HERE > public-key.txt
 ```
 
-# Generate new key directly on yubikey (preferred method)
+## Generate new key directly on yubikey (preferred method)
 ```bash
 # enter card settings
 gpg --card-edit
@@ -133,7 +133,7 @@ choose 5 = I trust ultimately
 confirm with Y
 then quit
 
-# Import public key to another computer 
+## Import public key to another computer 
 
 gpg --import < pubkey.txt (or whatever filename you used for the public key)
 
@@ -147,7 +147,7 @@ choose 5 = I trust ultimately
 confirm with Y
 then quit
 
-# Yubikey Support from Git Bash [(source)](https://gist.github.com/wsargent/072319c2100ac0aea4305d6f6eeacc08)
+## Yubikey Support from Git Bash [(source)](https://gist.github.com/wsargent/072319c2100ac0aea4305d6f6eeacc08)
 Git Bash's gpg doesn't like GPG4Win.  If you try running GPG from inside a Git Bash shell, you get:
 ```
 $ gpg --card-status
@@ -183,5 +183,5 @@ rm gpg.exe
 
 Then close the Git Bash shell to try again.
 
-# Debian distros issue: --card-status not working
+## Debian distros issue: --card-status not working
 Follow these steps: https://blog.josefsson.org/tag/scdaemon/
