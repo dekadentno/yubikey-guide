@@ -77,7 +77,7 @@ quit
 # export the generated public key
 gpg2 --armor --export KEY_ID
 # export the generated private key 
-gpg --export-secret-key --armor KEY_ID
+gpg2 --armor --export-secret-key KEY_ID
 ```
 
 ## Import public key to Github/Gitlab
