@@ -1,15 +1,15 @@
 # yubikey-guide
 Simple steps on how to configure Yubico YubiKey 4 on Linux for signed git commits
 
-## Install gpg2 
+## Install gpg2
 __Important:__ Do not use gpg because YubiKey 4 works only with gpg2 !
 
-## Freaquently used commands 
+## Freaquently used commands
 ```bash
 # generate new key on computer
 gpg2 --gen-key
 
-# list secret keys in long format 
+# list secret keys in long format
 gpg2 --list-secret-keys --keyid-format LONG
 
 # list public keys in short format
@@ -76,7 +76,7 @@ Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
 quit
 # export the generated public key
 gpg2 --armor --export KEY_ID
-# export the generated private key 
+# export the generated private key
 gpg2 --armor --export-secret-key KEY_ID
 ```
 
@@ -86,8 +86,8 @@ Go to your profile nad settings and find GPG keys. Import or paste the secret ke
 ## Tell git to use gpg2 and autosign the commits
 ```bash
 git config --global user.signingkey YOUR_SHORT_KEY
-git config --global commit.gpgsign true 
-git config --global gpg.program gpg2 
+git config --global commit.gpgsign true
+git config --global gpg.program gpg2
 ```
 
 ## Transfer key to YubiKey
@@ -119,21 +119,52 @@ If you mess something up on your YubiKey 4, you can do a factory reset with [thi
 ## Avoid entering password on every pull and push:
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
+## Import key to another computer - thanks @aussieboi
+
+Had to download [GnuPG for OS X] https://sourceforge.net/p/gpgosx/docu/Download/
+
+
 ## Import key to another computer - thanks iklajo
+
+>  ** Make sure your yubikey is not connected **
+
 "No, you simply import the public key (or use fetch if you have configured the URL on YubiKey):
 gpg --import < pubkey.txt (or whatever filename you used for the public key)"
 
-Then insert the card and verify it by:
-gpg --card-status
 
+Then insert the card and verify it by:
+
+```
+gpg --card-status
+```
+```
+gpg --edit-key YOURKEYID
+```
 Finally trust the public key:
-gpg --edit-key YOUR KEY ID
-trust
+```
+gpg> trust
+```
+```
+Please decide how far you trust this user to correctly verify other users' keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+  1 = I don't know or won't say
+  2 = I do NOT trust
+  3 = I trust marginally
+  4 = I trust fully
+  5 = I trust ultimately
+  m = back to the main menu
+
+Your decision? 5
+Do you really want to set this key to ultimate trust? (y/N) y
+```
 choose 5 = I trust ultimately
 confirm with Y
-then quit
+```
+gpg> quit
+```
 
-## Import public key to another computer 
+## Import public key to another computer
 
 gpg --import < pubkey.txt (or whatever filename you used for the public key)
 
