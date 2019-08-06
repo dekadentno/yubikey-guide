@@ -31,7 +31,7 @@ ssb   4096R/62E5B29EEA7145E 2016-08-11
 gpg2 --armor --export PASTE_LONG_KEY_HERE > public-key.txt
 
 # export private key
-gpg2 --armor --export PASTE_LONG_KEY_HERE > public-key.txt
+gpg2 --armor --export-secret-key PASTE_LONG_KEY_HERE > secret-key.txt
 ```
 
 ## Generate new key directly on yubikey (preferred method)
