@@ -87,7 +87,7 @@ Go to your profile nad settings and find GPG keys. Import or paste the secret ke
 ```bash
 git config --global user.signingkey YOUR_SHORT_KEY
 git config --global commit.gpgsign true
-git config --global gpg.program gpg2
+git config --global gpg.program gpg2 # if you are on mac with gpg problems on commit, try git config --global gpg.program /usr/local/bin/gpg
 ```
 
 ## Transfer key to YubiKey
