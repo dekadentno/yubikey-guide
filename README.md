@@ -90,6 +90,14 @@ git config --global commit.gpgsign true
 git config --global gpg.program gpg2 # if you are on mac with gpg problems on commit, try git config --global gpg.program /usr/local/bin/gpg
 ```
 
+### Sign Recursive merge
+In Recursive merge, after you branch and make some commits, there are some new original commits, this is not autosigned.
+and you could resign it:
+
+```bash
+git commit --amend --no-edit -S
+```
+
 ## Transfer key to YubiKey
 You don't need to do this if you generated a key directly on yubikey!
 Every "row" is a separate command, be careful:
